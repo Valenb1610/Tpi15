@@ -1,0 +1,28 @@
+class chat{
+
+ String msj = "", nombre = "";
+  color c;
+
+  float  x,  y;  
+
+  float tamx,  tamy;
+
+  chat(String MSJ, color C, float  X, float Y, float tamX, float tamY){
+
+ 
+
+  x=X;y=Y;tamx=tamX;tamy=tamY; c=C; msj=MSJ;
+
+ 
+
+ }
+
+ void dibujar()
+
+  {
+
+  fill(c);rect(x-25,y-25,tamx+90,tamy);fill(255);text(msj,x,y);
+
+ }
+
+}
