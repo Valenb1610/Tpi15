@@ -1,0 +1,65 @@
+import hypermedia.net.*;
+
+UDP udp;  
+
+chat chat1;
+color c1=  #51005D;
+String mensaje = "Hola que tal?-_-Valentino-_-Mendoza"; 
+String[] list = split(mensaje , "-_-");
+int index=0;
+
+void setup() {
+  println(list[0]);
+  println(list[1]);
+  println(list[2]);
+  udp = new UDP( this,5010);
+
+  udp.listen( true );
+
+  size(700, 600);
+
+ 
+
+}
+
+void draw() {
+
+  background(200);
+
+
+  if (chat1 != null) {
+
+    chat1.dibujar();
+
+  }
+
+}
+
+void keyPressed() {
+
+   
+
+    String message  = str( key ); 
+
+    String ip       = "localhost";  
+
+    int port        =5010;   
+
+    message = message+"holaaa";
+    udp.send( message, ip, port );
+}
+
+void receive( byte[] data, String ip, int port ) {  
+
+
+
+  data = subset(data, 0, data.length);
+
+  String message = new String( data );
+
+
+  chat1= new chat(mensaje,c1, 250,250,150,40);
+
+
+
+}
